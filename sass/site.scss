@@ -1,0 +1,248 @@
+$bg-color: #FFD71A;
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Pacifico');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+h1{
+	width:80vw;
+	margin-left:10vw;
+	margin-top:5vw;
+	margin-bottom:5vw;
+	font-size: 11vw;
+  text-align: center;
+  font-family: 'Pacifico', cursive;
+  font-weight:normal;
+}
+
+.container {
+  padding: 0px 0;
+  width: 80vw;
+  margin-left:10vw;
+}
+
+.cf {clear: both;}
+
+body {
+  font-family: 'Comfortaa', cursive;
+  background: white;
+  color: #FFD71A;
+}
+
+::selection {
+  background: red; /* Safari */
+  }
+::-moz-selection {
+  background: #ffb7b7; /* Firefox */
+}
+
+ul {
+  clear: both;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #FFF;
+}
+
+p {
+  text-indent: 10px;
+  font-size: 4vw;
+  line-height: 7vw;
+  margin: 0 0 5px 0;
+}
+
+.item, .empty {
+  background: $bg-color;
+  border: 1px solid $bg-color;
+  margin-bottom: 5px;
+  position: relative;
+  height: 7vw;
+  width:78vw;
+  margin-left:0.5vw;
+  margin-bottom:1vw;
+}
+
+.item {
+  padding-right: 5px; // cuts off text on right
+}
+
+.empty {
+  background-color:#F4F4F4;
+  color:black;
+  border:none;
+}
+
+button{
+  background: yellow;
+  border: none;
+  padding: 9px 16px;
+  font-size: 16px;
+  margin: 0;
+  outline: 0;
+
+  &.remove {
+    float: left;
+    background: #FF4F2D;
+    display: none;
+    font-size:7vw;
+    font-weight: bold;
+    margin-bottom:1vw;
+    width:38.5vw;
+    height:38.5vw;
+    margin-left:0.5vw;
+    margin-right:0.5vw;
+    font-family: 'Comfortaa', cursive;
+  }
+
+  &.add {
+    background-color:#FFD71A;
+    float: left;
+    font-size:10vw;
+    font-weight: bold;
+    padding: 3vw 4.6vw;
+    margin-bottom:1vw;
+    width:38.5vw;
+    height:38.5vw;
+    margin-left:0.5vw;
+    margin-right:0.5vw;
+    color:#403606;
+    font-family: 'Comfortaa', cursive;
+  }
+}
+
+.controls {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.checkbox {
+  position: absolute;
+  display: block;
+  text-align: center;
+  left: 10px;
+  top: 50%;
+  height: 3vw;
+  width: 3vw;
+  border-radius:2vw;
+  line-height: 13px;
+  margin-top: -1.5vw;
+  background: black;
+  border: 1px solid yellow;
+}
+
+.completed {
+  background: red;
+}
+
+input[type="checkbox"] {
+  opacity:  0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type=checkbox] + label {
+  // outline: 1px solid red;
+  position: absolute;
+  display: block;
+  height: 38px;
+  width: 37px;
+  top: 0;
+  left: 0;
+}
+
+input[type=checkbox]:checked {
+}
+
+input[type=checkbox]:checked + label {
+  // outline: 1px solid blue;
+
+  &:before {
+    content: '+';
+    display: block;
+    position: absolute;
+    left: -0.95em;
+    top: -2.2vw;
+    right: 0px;
+    line-height: 0.975em;
+    font-size: 2em;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+  }
+}
+
+.checkAll {display: none;}
+
+.disabled {
+  color:grey !important;
+  input[type="text"] {
+    color: grey !important;
+  }
+}
+
+input[type="text"] {
+  background: none;
+  outline: 0;
+  border: none;
+  color: #000;
+  width: 100%;
+  margin: 0;
+  padding: 5px 0 20px 50px;
+  font-size: 4vw;
+  font-family: 'Comfortaa', cursive;
+}
+
+[contenteditable]::selection {
+  background: pink; /* Safari */
+  }
+[contenteditable]::-moz-selection {
+  background: pink; /* Firefox */
+}
+
+//item color generator
+
+@for $i from 1 through 50 {
+  .item:nth-child(#{$i}) {
+    background: adjust-hue($bg-color, ($i * 3));
+    border-color: adjust-hue($bg-color, ($i * 3));
+    .checkbox {
+      border-color: adjust-hue($bg-color, ($i * 3));
+    }
+    input[type=checkbox]:checked + label {
+      color: adjust-hue($bg-color, ($i * 3));
+    }
+  }
+}
+
+.common{
+    float: left;
+    margin-bottom:1vw;
+    width:38.5vw;
+    height:38.5vw;
+    margin-left:0.5vw;
+    margin-right:0.5vw;
+    background-color:#F4F4F4;
+
+    img{
+      text-align:center;
+      width:20vw;
+      margin-top:5vw;
+      margin-bottom:3vw;
+      margin-left:9.5vw;
+    }
+
+    p{
+      font-size:7vw;
+      color:black;
+      text-align:center;
+    }
+
+}
